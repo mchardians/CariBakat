@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,23 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::middleware('guest')->group(function() {
-    Route::get('/', function () {
-        return view('pages.landing.home');
-    })->name('home');
-    Route::get('/daftar', function () {
-        return view('pages.auth.signup');
-    })->name('signup');
-    Route::get('/masuk', function () {
-        return view('pages.auth.signin');
-    })->name('signin');
-    Route::get('/tentang-kami', function () {
-        return view('pages.landing.about');
-    })->name('about');
-    Route::get('/kontak', function () {
-        return view('pages.landing.contact');
-    })->name('contact');
+    Route::view('/', 'pages.landing.home')->name('home');
+    Route::get('/register', [RegisterController::class, 'index'])->name('signup');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register');
+    Route::get('/login', [AuthController::class, 'index'])->name('signin');
+    Route::post('/login', [AuthController::class, 'authenticate'])->name('auth');
+    Route::get('/forgot-password', function() {
+        return view('pages.auth.forgot-password');
+    })->name('forgot-password');
+    Route::view('/about', 'pages.landing.about')->name('about');
+    Route::view('/contact','pages.landing.contact')->name('contact');
     Route::get('/detail-pekerjaan', function() {
-        return view('pages.landing.job-details');
+        return view();
     })->name('job-details');
     Route::get('/detail-pekerjaan/lamar', function() {
         return view('pages.landing.application-form');
@@ -37,15 +34,23 @@ Route::middleware('guest')->group(function() {
 });
 
 Route::middleware('auth')->group(function() {
-    Route::middleware('roles:pelamar')->group(function() {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+    Route::middleware('roles:pelamar')->prefix('pelamar')->group(function() {
+        Route::get('/dashboard', function() {
+            return view('pages.features.pelamar.dashboard');
+        })->name('pelamar.dashboard');
     });
 
-    Route::middleware('roles:hrd')->group(function() {
-
+    Route::middleware('roles:hrd')->prefix('hrd')->group(function() {
+        Route::get('/dashboard', function() {
+            return view('pages.features.hrd.dashboard');
+        })->name('hrd.dashboard');
     });
 
-    Route::middleware('roles:manajer')->group(function() {
-
+    Route::middleware('roles:manajer')->prefix('manajer')->group(function() {
+        Route::get('/dashboard', function() {
+            return view('pages.features.manajer.dashboard');
+        })->name('manajer.dashboard');
     });
 });

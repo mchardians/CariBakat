@@ -1,0 +1,38 @@
+Sistem Manajemen Portal Pekerjaan di PT. Dikerjain:
+
+1. User:
+    - Pelamar
+    - HRD
+    - Manajer
+
+2. Proses Bisnis:
+    0. Pelamar (Landing Page)
+        0.0 Pelamar dapat melihat daftar lowongan pekerjaan
+        0.1 Pelamar dapat melakukan filter lowongan pekerjaan berdasarkan kriteria seperti lokasi, posisi, atau departemen
+        0.2 Pelamar dapat melihat detail lowongan pekerjaan yang mencakup deskripsi, syarat, dan kualifikasi yang diperlukan
+        0.3 Pelamar dapat melihat form lamaran pekerjaan dengan kolom untuk melengkapi data diri dan mengunggah CV
+        0.4 Pelamar mengisi form lamaran pekerjaan sesuai dengan informasi yang dibutuhkan
+        0.5 Pelamar mengunggah CV dan dokumen pendukung lainnya sebagai bagian dari lamaran
+    1. Pelamar (Dashboard)
+        1.0 Pelamar registrasi pada sistem melalui landing page untuk membuat akun baru
+        1.1 Pelamar dapat login melalui landing page setelah memiliki akun
+        1.2 Pelamar dapat melihat halaman dashboard untuk memantau status lamaran dan informasi lainnya
+        1.3 Pelamar dapat melihat Riwayat lamaran yang pernah diikuti, termasuk posisi dan tanggal lamaran
+        1.4 Pelamar dapat melihat hasil lamaran apakah diterima, ditolak, atau dalam proses
+        1.5 Pelamar dapat menerima notifikasi hasil lamaran (melalui WhatsApp atau email) untuk setiap perubahan status lamaran
+        1.6 Pelamar dapat mengedit profil dan memperbarui CV jika diperlukan
+    2. HRD
+        2.0 HRD dapat melakukan login untuk masuk ke dalam system
+        2.1 HRD dapat melihat dashboard system
+        2.2 HRD dapat mengatur kriteria dan bobot penilaian untuk setiap lowongan berdasarkan kebutuhan posisi
+        2.3 HRD dapat mengedit informasi lowongan yang sudah dibuat (misalnya, mengubah deskripsi atau kualifikasi)
+        2.4 HRD dapat mengaktifkan atau menonaktifkan lowongan yang sudah diunggah untuk membuka atau menutup pendaftaran
+        2.5 HRD dapat melihat daftar pelamar yang melamar setiap lowongan yang ada
+        2.6 HRD dapat memberikan penilaian kepada setiap pelamar menggunakan metode SAW untuk memperoleh nilai akhir
+        2.7 HRD dapat mencetak daftar pelamar diterima
+        3.0 Manajer dapat melakukan login untuk masuk ke dalam system
+    3. Manajer
+        3.1 Manajer dapat melihat dashboard system
+        3.2 Manajer dapat melihat skor dan detail penilaian masing-masing pelamar untuk setiap kriteria
+        3.3 Manajer dapat memfilter atau mencari pelamar tertentu berdasarkan skor atau kriteria khusus
+        3.4 Manajer dapat memberikan rekomendasi akhir atau persetujuan sebelum hasil dikomunikasikan ke pelamar

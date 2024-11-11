@@ -103,10 +103,10 @@
                 </div>
                 <div class="row text-center" style="padding: 25px 10px 0;">
                     <div class="col-md-6">
-                        <a href="{{ route('signin') }}" id="show-signin" class="btn btn-danger btn-link w-100 fw-bold">Cancel</a>
+                        <a href="{{ route('signin') }}" id="show-signin" class="btn btn-danger btn-link w-100 fw-bold">Batal</a>
                     </div>
                     <div class="col-md-6">
-                        <a href="#" class="btn btn-primary w-100 fw-bold">Sign Up</a>
+                        <a href="#" class="btn btn-primary w-100 fw-bold">Daftar</a>
                     </div>
                 </div>
             </form>
