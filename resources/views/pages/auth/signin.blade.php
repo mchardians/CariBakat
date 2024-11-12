@@ -85,14 +85,14 @@
                                         </div>
                                     @enderror
 
-                                    <form action="{{ route('auth') }}" method="POST">
+                                    <form action="{{ route('auth') }}" method="POST" id="signin-form">
                                         @csrf
                                         <div class="form-group">
-                                            <label for="email">Email Address</label>
+                                            <label for="email">Email</label>
                                             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email"
-                                                placeholder="Email">
+                                                placeholder="Email" value="{{ old('email') }}">
                                             @error('email')
-                                                <label for="email" class="invalid-feedback error">{{ $message }}</label>
+                                                <span class="invalid-feedback font-weight-bold">{{ $message }}</span>
                                             @enderror
                                         </div>
                                         <div class="form-group">
@@ -102,11 +102,8 @@
                                                     <a href="{{ route('forgot-password') }}" class="text-small">Lupa Password?</a>
                                                 </div>
                                             </div>
-                                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password"
+                                            <input type="password" class="form-control" id="password" name="password"
                                                 placeholder="Password">
-                                                @error('password')
-                                                <label for="password" class="invalid-feedback error">{{ $message }}</label>
-                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-lg btn-block"
@@ -140,6 +137,9 @@
     <script src="{{ asset('assets/template/js/core/jquery.3.2.1.min.js') }}"></script>
     <script src="{{ asset('assets/template/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('assets/template/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/jsvalidation/js/jsvalidation.min.js') }}"></script>
+
+    {!! JsValidator::formRequest('App\Http\Requests\SignInRequest', '#signin-form') !!}
 </body>
 
 </html>

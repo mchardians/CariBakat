@@ -69,7 +69,7 @@
             <h3 class="text-center" style="font-size: 19px;font-weight: 600;margin-bottom: 25px;">Daftar Akun</h3>
             <form action="#">
                 <div class="form-group">
-                    <label for="fullname" class="placeholder"><b>Fullname</b></label>
+                    <label for="fullname" class="placeholder"><b>Nama Lengkap</b></label>
                     <input id="fullname" name="fullname" type="text" class="form-control" required>
                 </div>
                 <div class="form-group">
@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="confirmpassword" class="placeholder"><b>Confirm Password</b></label>
+                    <label for="confirmpassword" class="placeholder"><b>Konfirmasi Password</b></label>
                     <div class="position-relative">
                         <input id="confirmpassword" name="confirmpassword" type="password" class="form-control"
                             required>
@@ -95,18 +95,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="row align-items-center justify-content-between m-0" style="padding: 8px 10px;">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" name="agree" id="agree">
-                        <label class="custom-control-label" for="agree">I Agree the terms and conditions.</label>
-                    </div>
-                </div>
                 <div class="row text-center" style="padding: 25px 10px 0;">
                     <div class="col-md-6">
                         <a href="{{ route('signin') }}" id="show-signin" class="btn btn-danger btn-link w-100 fw-bold">Batal</a>
                     </div>
                     <div class="col-md-6">
-                        <a href="#" class="btn btn-primary w-100 fw-bold">Daftar</a>
+                        <a href="#" class="btn btn-success w-100 fw-bold">Daftar</a>
                     </div>
                 </div>
             </form>
