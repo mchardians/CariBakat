@@ -15,25 +15,28 @@ class UserSeeder extends Seeder
     {
         User::insert([
             [
-                'name' => 'Pelamar',
+                'fullname' => 'Pelamar',
                 'email' => 'pelamar@caribakat.com',
                 'password' => bcrypt('userpelamar'),
+                "phone" => fake()->unique()->numerify("08###########"),
                 'created_at' => now(),
                 'updated_at' => now(),
                 'role_id' => 1
             ],
             [
-                'name' => 'HRD',
+                'fullname' => 'HRD',
                 'email' => 'hrd@caribakat.com',
                 'password' => bcrypt('userhrd'),
+                "phone" => fake()->unique()->numerify("08###########"),
                 'created_at' => now(),
                 'updated_at' => now(),
                 'role_id' => 2
             ],
             [
-                'name' => 'Manajer',
+                'fullname' => 'Manajer',
                 'email' => 'manajer@caribakat.com',
                 'password' => bcrypt('usermanajer'),
+                "phone" => fake()->unique()->numerify("08###########"),
                 'created_at' => now(),
                 'updated_at' => now(),
                 'role_id' => 3

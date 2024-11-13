@@ -40,7 +40,7 @@
         }
 
         .daftar-container {
-            width: 400px;
+            width: 500px;
             padding: 60px 25px;
             border-radius: 5px;
             background-color: #fff;
@@ -67,29 +67,36 @@
     <div class="wrapper d-flex justify-content-center align-items-center" style="height: unset;padding: 15px;">
         <div class="container daftar-container">
             <h3 class="text-center" style="font-size: 19px;font-weight: 600;margin-bottom: 25px;">Daftar Akun</h3>
-            <form action="#">
+            <form action="{{ route('register') }}" method="POST" id="signup-form">
+                @csrf
                 <div class="form-group">
                     <label for="fullname" class="placeholder"><b>Nama Lengkap</b></label>
-                    <input id="fullname" name="fullname" type="text" class="form-control" required>
+                    <input id="fullname" name="fullname" type="text" class="form-control" placeholder="Nama Lengkap">
                 </div>
                 <div class="form-group">
                     <label for="email" class="placeholder"><b>Email</b></label>
-                    <input id="email" name="email" type="email" class="form-control" required>
+                    <input id="email" name="email" type="email" class="form-control" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <label for="passwordsignin" class="placeholder"><b>Password</b></label>
+                    <label for="phone" class="placeholder"><b>Nomor Telepon</b></label>
+                    <input id="phone" name="phone" type="text" class="form-control"
+                        placeholder="Nomor Telepon">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="placeholder"><b>Password</b></label>
                     <div class="position-relative">
-                        <input id="passwordsignin" name="passwordsignin" type="password" class="form-control" required>
+                        <input id="password" name="password" type="password" class="form-control"
+                            placeholder="Password">
                         <div class="show-password">
                             <i class="icon-eye"></i>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="confirmpassword" class="placeholder"><b>Konfirmasi Password</b></label>
+                    <label for="password_confirmation" class="placeholder"><b>Konfirmasi Password</b></label>
                     <div class="position-relative">
-                        <input id="confirmpassword" name="confirmpassword" type="password" class="form-control"
-                            required>
+                        <input id="password_confirmation" name="password_confirmation" type="password"
+                            class="form-control" placeholder="Konfirmasi Password">
                         <div class="show-password">
                             <i class="icon-eye"></i>
                         </div>
@@ -97,15 +104,84 @@
                 </div>
                 <div class="row text-center" style="padding: 25px 10px 0;">
                     <div class="col-md-6">
-                        <a href="{{ route('signin') }}" id="show-signin" class="btn btn-danger btn-link w-100 fw-bold">Batal</a>
+                        <a href="{{ route('signin') }}" id="show-signin" class="btn btn-danger btn-link w-100 fw-bold"
+                            style="text-decoration: underline;">Batal</a>
                     </div>
                     <div class="col-md-6">
-                        <a href="#" class="btn btn-success w-100 fw-bold">Daftar</a>
+                        <button type="submit" class="btn btn-success w-100 fw-bold">Daftar</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
+    <!--   Core JS Files   -->
+    <script src="{{ asset('assets/template/js/core/jquery.3.2.1.min.js') }}"></script>
+    <script src="{{ asset('assets/template/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/template/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/jsvalidation/js/jsvalidation.min.js') }}"></script>
+    <script src="{{ asset('assets/template/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
+
+    {!! JsValidator::formRequest('App\Http\Requests\SignUpRequest', '#signup-form') !!}
+
+    <script>
+        $(document).ready(function() {
+            $("#signup-form").submit(function (e) {
+                e.preventDefault();
+
+                const form = $(this);
+                const formData = $(this).serialize();
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('register') }}",
+                    data: formData,
+                    dataType: "JSON",
+                    success: function (response) {
+                        swal({
+                            title: response.data.code,
+                            text: response.data.message,
+                            icon: "success",
+                            closeOnClickOutside: false,
+                            buttons: {
+                                confirm: {
+                                    text: "OK",
+                                    visible: true,
+                                    className: "btn btn-success",
+                                    closeModal: true
+                                }
+                            }
+                        }).then((result) => {
+                            if(result) {
+                                form[0].reset();
+                                window.location.href = "{{ route('signin') }}";
+                            }
+                        });
+                    }
+                });
+
+            });
+        });
+    </script>
+
+    <script>
+        const passwordToggles = document.querySelectorAll('.show-password');
+
+        passwordToggles[0].addEventListener('click', function() {
+            const input = document.getElementById('password');
+
+            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+            input.setAttribute('type', type);
+        });
+
+        passwordToggles[1].addEventListener('click', function() {
+            const input = document.getElementById('password_confirmation');
+
+            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+            input.setAttribute('type', type);
+        });
+    </script>
+
 </body>
 
 </html>

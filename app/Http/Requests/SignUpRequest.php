@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SignUpRequest extends FormRequest
@@ -11,7 +12,7 @@ class SignUpRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,10 @@ class SignUpRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "fullname" => ["required"],
+            "email" => ["required", "email", "unique:users,email"],
+            "phone" => ["required", "starts_with:08,62", "digits_between:10,13", "unique:users,phone"],
+            "password" => ["required", "confirmed", "min:6"]
         ];
     }
 }
