@@ -32,6 +32,12 @@
     <link rel="stylesheet" href="{{ asset('assets/template/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/template/css/atlantis.min.css') }}">
 
+    <style>
+        .visit:hover {
+            text-decoration: underline;
+        }
+    </style>
+
     <!-- Custom CSS -->
     {{ $stylesheets }}
 

@@ -26,7 +26,7 @@ Route::middleware('guest')->group(function() {
     Route::view('/about', 'pages.landing.about')->name('about');
     Route::view('/contact','pages.landing.contact')->name('contact');
     Route::get('/detail-pekerjaan', function() {
-        return view();
+        return view('pages.landing.job-details');
     })->name('job-details');
     Route::get('/detail-pekerjaan/lamar', function() {
         return view('pages.landing.application-form');
@@ -44,8 +44,26 @@ Route::middleware('auth')->group(function() {
 
     Route::middleware('roles:hrd')->prefix('hrd')->group(function() {
         Route::get('/dashboard', function() {
-            return view('pages.features.hrd.dashboard');
+            return view('pages.features.hrd.dashboard.dashboard');
         })->name('hrd.dashboard');
+        Route::get('/departemen', function() {
+            return view('pages.features.hrd.departemen.departemen');
+        })->name('hrd.departemen');
+        Route::get('/lowongan', function() {
+            return view('pages.features.hrd.lowongan.lowongan-aktif');
+        })->name('hrd.lowongan');
+        Route::get('/lowongan/berakhir', function() {
+            return view('pages.features.hrd.lowongan.lowongan-berakhir');
+        })->name('hrd.lowongan.berakhir');
+        Route::get('/bobot-kriteria', function() {
+            return view('pages.features.hrd.bobot-kriteria.bobot-kriteria');
+        })->name('hrd.bobot-kriteria');
+        Route::get('/pelamar', function() {
+            return view('pages.features.hrd.pelamar.pelamar');
+        })->name('hrd.pelamar');
+        Route::get('/laporan', function() {
+            return view('pages.features.hrd.laporan.laporan');
+        })->name('hrd.laporan');
     });
 
     Route::middleware('roles:manajer')->prefix('manajer')->group(function() {

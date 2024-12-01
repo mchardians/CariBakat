@@ -4,13 +4,27 @@
         <div class="sidebar-content">
             <div class="user">
                 <div class="avatar-sm float-left mr-2">
-                    <img src="{{ asset('assets/template/img/profile.jpg') }}" alt="..." class="avatar-img rounded-circle">
+                    @auth
+                        @switch(auth()->user()->role->name)
+                            @case('hrd')
+                                <img src="{{ asset('assets/template/img/hrd-user-icon.png') }}" alt="image profile"
+                                    class="avatar-img rounded-circle" style="background-color: gray;">
+                            @break
+
+                            @case('manajer')
+                            @break
+
+                            @default
+                                <img src="{{ asset('assets/template/img/profile.jpg') }}" alt="image profile"
+                                    class="avatar-img rounded-circle">
+                        @endswitch
+                    @endauth
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                         <span>
-                            Hizrian
-                            <span class="user-level">Administrator</span>
+                            {{ auth()->user()->fullname }}
+                            <span class="user-level">{{ ucfirst(auth()->user()->fullname) }}</span>
                             <span class="caret"></span>
                         </span>
                     </a>
@@ -19,286 +33,153 @@
                     <div class="collapse in" id="collapseExample">
                         <ul class="nav">
                             <li>
-                                <a href="#profile">
-                                    <span class="link-collapse">My Profile</span>
+                                <a href="{{ route('home') }}">
+                                    <span class="link-collapse d-inline-block visit">
+                                        <i class="fas fa-globe mr-2"></i>
+                                        Visit Home Page
+                                    </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#edit">
-                                    <span class="link-collapse">Edit Profile</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#settings">
-                                    <span class="link-collapse">Settings</span>
-                                </a>
+                                <form action="{{ route('logout') }}" id="form-logout" method="POST">
+                                    @csrf
+                                    <a class="link-collapse text-danger fw-bold"
+                                        href="javascript:$('#form-logout').submit();">
+                                        <i class="fas fa-sign-out-alt mr-2"></i>
+                                        Logout
+                                    </a>
+                                </form>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <ul class="nav nav-success">
-                <li class="nav-item active">
-                    <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
-                        <i class="fas fa-home"></i>
-                        <p>Dashboard</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="dashboard">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="../demo1/index.html">
-                                    <span class="sub-item">Dashboard 1</span>
+                @auth
+                    @switch(auth()->user()->role->name)
+                        @case('pelamar')
+                        @break
+
+                        @case('hrd')
+                            <li class="nav-item {{ request()->routeIs('hrd.dashboard') ? 'active' : '' }}">
+                                <a href="{{ route('hrd.dashboard') }}">
+                                    <i class="fas fa-home"></i>
+                                    <p>Dashboard</p>
                                 </a>
                             </li>
-                            <li>
-                                <a href="../demo2/index.html">
-                                    <span class="sub-item">Dashboard 2</span>
+                            <li class="nav-section">
+                                <span class="sidebar-mini-icon">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </span>
+                                <h4 class="text-section">Departemen</h4>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs('hrd.departemen') ? 'active' : '' }}">
+                                <a href="{{ route('hrd.departemen') }}">
+                                    <i class="fas fa-building"></i>
+                                    <p>Departemen</p>
                                 </a>
                             </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">Components</h4>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#base">
-                        <i class="fas fa-layer-group"></i>
-                        <p>Base</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="base">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="components/avatars.html">
-                                    <span class="sub-item">Avatars</span>
-                                </a>
+                            <li class="nav-section">
+                                <span class="sidebar-mini-icon">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </span>
+                                <h4 class="text-section">Lowongan Pekerjaan</h4>
                             </li>
-                            <li>
-                                <a href="components/buttons.html">
-                                    <span class="sub-item">Buttons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/gridsystem.html">
-                                    <span class="sub-item">Grid System</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/panels.html">
-                                    <span class="sub-item">Panels</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/notifications.html">
-                                    <span class="sub-item">Notifications</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/sweetalert.html">
-                                    <span class="sub-item">Sweet Alert</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/font-awesome-icons.html">
-                                    <span class="sub-item">Font Awesome Icons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/simple-line-icons.html">
-                                    <span class="sub-item">Simple Line Icons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/flaticons.html">
-                                    <span class="sub-item">Flaticons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/typography.html">
-                                    <span class="sub-item">Typography</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#sidebarLayouts">
-                        <i class="fas fa-th-list"></i>
-                        <p>Sidebar Layouts</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="sidebarLayouts">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="sidebar-style-1.html">
-                                    <span class="sub-item">Sidebar Style 1</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="overlay-sidebar.html">
-                                    <span class="sub-item">Overlay Sidebar</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="compact-sidebar.html">
-                                    <span class="sub-item">Compact Sidebar</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="static-sidebar.html">
-                                    <span class="sub-item">Static Sidebar</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="icon-menu.html">
-                                    <span class="sub-item">Icon Menu</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#forms">
-                        <i class="fas fa-pen-square"></i>
-                        <p>Forms</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="forms">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="forms/forms.html">
-                                    <span class="sub-item">Basic Form</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#tables">
-                        <i class="fas fa-table"></i>
-                        <p>Tables</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="tables">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="tables/tables.html">
-                                    <span class="sub-item">Basic Table</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tables/datatables.html">
-                                    <span class="sub-item">Datatables</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#maps">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Maps</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="maps">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="maps/jqvmap.html">
-                                    <span class="sub-item">JQVMap</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#charts">
-                        <i class="far fa-chart-bar"></i>
-                        <p>Charts</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="charts">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="charts/charts.html">
-                                    <span class="sub-item">Chart Js</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="charts/sparkline.html">
-                                    <span class="sub-item">Sparkline</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a href="widgets.html">
-                        <i class="fas fa-desktop"></i>
-                        <p>Widgets</p>
-                        <span class="badge badge-success">4</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#submenu">
-                        <i class="fas fa-bars"></i>
-                        <p>Menu Levels</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="submenu">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a data-toggle="collapse" href="#subnav1">
-                                    <span class="sub-item">Level 1</span>
+                            <li class="nav-item {{ request()->routeIs('hrd.lowongan.*') ? 'active submenu' : '' }}">
+                                <a data-toggle="collapse" href="#lowongan" class="collapsed" aria-expanded="{{ request()->routeIs('hrd.lowongan.*') ? 'true' : 'false' }}">
+                                    <i class="fas fa-briefcase"></i>
+                                    <p>Daftar Lowongan</p>
                                     <span class="caret"></span>
                                 </a>
-                                <div class="collapse" id="subnav1">
-                                    <ul class="nav nav-collapse subnav">
+                                <div class="collapse {{ request()->routeIs('hrd.lowongan.*') ? 'show' : '' }}" id="lowongan">
+                                    <ul class="nav nav-collapse">
                                         <li>
-                                            <a href="#">
-                                                <span class="sub-item">Level 2</span>
+                                            <a href="../demo1/index.html">
+                                                <span class="sub-item">Lowongan Aktif</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <span class="sub-item">Level 2</span>
+                                            <a href="{{ route('hrd.lowongan.berakhir') }}">
+                                                <span class="sub-item {{ request()->routeIs('hrd.lowongan.berakhir') ? 'font-weight-bold text-dark' : '' }}">Lowongan Berakhir</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li>
-                                <a data-toggle="collapse" href="#subnav2">
-                                    <span class="sub-item">Level 1</span>
+                            <li class="nav-section">
+                                <span class="sidebar-mini-icon">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </span>
+                                <h4 class="text-section">Bobot Penilaian</h4>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs('hrd.bobot-kriteria') ? 'active' : '' }}">
+                                <a href="{{ route('hrd.bobot-kriteria') }}">
+                                    <i class="fas fa-balance-scale"></i>
+                                    <p>Bobot Kriteria</p>
+                                </a>
+                            </li>
+                            <li class="nav-section">
+                                <span class="sidebar-mini-icon">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </span>
+                                <h4 class="text-section">Pelamar Kerja</h4>
+                            </li>
+                            <li class="nav-item">
+                                <a data-toggle="collapse" href="#pelamar" class="collapsed" aria-expanded="false">
+                                    <i class="fas fa-user-tie"></i>
+                                    <p>Daftar Pelamar</p>
                                     <span class="caret"></span>
                                 </a>
-                                <div class="collapse" id="subnav2">
-                                    <ul class="nav nav-collapse subnav">
+                                <div class="collapse" id="pelamar">
+                                    <ul class="nav nav-collapse">
                                         <li>
-                                            <a href="#">
-                                                <span class="sub-item">Level 2</span>
+                                            <a href="../demo1/index.html">
+                                                <span class="sub-item">Pelamar Diterima</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../demo2/index.html">
+                                                <span class="sub-item">Pelamar Ditolak</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <span class="sub-item">Level 1</span>
-                                </a>
+                            <li class="nav-section">
+                                <span class="sidebar-mini-icon">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </span>
+                                <h4 class="text-section">Laporan Pelamar</h4>
                             </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="mx-4 mt-2">
-                    <a href="http://themekita.com/atlantis-bootstrap-dashboard.html"
-                        class="btn btn-primary btn-block"><span class="btn-label mr-2"> <i class="fa fa-heart"></i>
-                        </span>Buy Pro</a>
-                </li>
+                            <li class="nav-item">
+                                <a data-toggle="collapse" href="#laporan" class="collapsed" aria-expanded="false">
+                                    <i class="fas fa-print"></i>
+                                    <p>Laporan Pelamar</p>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="laporan">
+                                    <ul class="nav nav-collapse">
+                                        <li>
+                                            <a href="../demo1/index.html">
+                                                <span class="sub-item">Pelamar Diterima</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../demo2/index.html">
+                                                <span class="sub-item">Pelamar Ditolak</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        @break
+
+                        @case('manajer')
+                        @break
+
+                        @default
+                    @endswitch
+                @endauth
             </ul>
         </div>
     </div>
