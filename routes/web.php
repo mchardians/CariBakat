@@ -33,6 +33,8 @@ Route::middleware('guest')->group(function() {
     })->name('job-apply');
 });
 
+Route::view('/lowongan-aktif', 'pages.features.hrd.lowongan.lowongan-aktif')->name('lowongan.aktif');
+
 Route::middleware('auth')->group(function() {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 

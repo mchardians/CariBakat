@@ -94,7 +94,7 @@
                                 <div class="collapse {{ request()->routeIs('hrd.lowongan.*') ? 'show' : '' }}" id="lowongan">
                                     <ul class="nav nav-collapse">
                                         <li>
-                                            <a href="../demo1/index.html">
+                                            <a href="{{ route('lowongan.aktif') }}">
                                                 <span class="sub-item">Lowongan Aktif</span>
                                             </a>
                                         </li>
