@@ -6,17 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }} | CariBakat</title>
-    <link rel="shortcut icon"
-        href="https://media.istockphoto.com/id/1269500670/id/vektor/ikon-bebek-karet-kuning.jpg?s=612x612&w=0&k=20&c=FhXYJY8x9jGI8fhAht4w1wNXeZhxCAlcNTL6ri-qiX0=">
-    <link rel="stylesheet" href="{{ asset('assets/landing/css/custom-bs.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/landing/css/jquery.fancybox.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/landing/css/bootstrap-select.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/landing/fonts/icomoon/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/landing/fonts/line-icons/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/landing/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/landing/css/animate.min.css') }}">
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/landing/css/style.css') }}">
+    <!-- Favicon -->
+    <link href="{{ asset('favicon.ico') }}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{ asset('assets/landing/lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/landing/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ asset('assets/landing/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{{ asset('assets/landing/css/style.css') }}" rel="stylesheet">
+
     <!-- CUSTOM CSS -->
     {{ $stylesheets }}
 
@@ -24,7 +35,8 @@
 </head>
 
 <body id="top">
-    <div class="site-wrap">
+    <div class="container-xxl bg-white p-0" style="max-width: 100% !important;">
+        <!-- Navbar -->
         <x-partials.landing.navbar />
 
         {{ $content }}
@@ -32,21 +44,17 @@
         <x-partials.landing.footer />
     </div>
 
-    <!-- SCRIPTS -->
-    <script src="{{ asset('assets/landing/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/landing/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/landing/js/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/landing/js/stickyfill.min.js') }}"></script>
-    <script src="{{ asset('assets/landing/js/jquery.fancybox.min.js') }}"></script>
-    <script src="{{ asset('assets/landing/js/jquery.easing.1.3.js') }}"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/landing/lib/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/landing/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('assets/landing/lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/landing/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
-    <script src="{{ asset('assets/landing/js/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('assets/landing/js/jquery.animateNumber.min.js') }}"></script>
-    <script src="{{ asset('assets/landing/js/owl.carousel.min.js') }}"></script>
+    <!-- Template Javascript -->
+    <script src="{{ asset('assets/landing/js/main.js') }}"></script>
 
-    <script src="{{ asset('assets/landing/js/bootstrap-select.min.js') }}"></script>
-
-    <script src="{{ asset('assets/landing/js/custom.js') }}"></script>
     <!-- CUSTOM SCRIPT -->
     {{ $scripts }}
 </body>

@@ -16,6 +16,9 @@ use App\Http\Controllers\RegisterController;
 */
 Route::middleware('guest')->group(function() {
     Route::view('/', 'pages.landing.home')->name('home');
+    Route::view('/about-us', 'pages.landing.about')->name('about');
+    Route::view('/careers', 'pages.landing.careers')->name('careers');
+    Route::view('/contact-us', 'pages.landing.contact')->name('contact');
     Route::get('/register', [RegisterController::class, 'index'])->name('signup');
     Route::post('/register', [RegisterController::class, 'store'])->name('register');
     Route::get('/login', [AuthController::class, 'index'])->name('signin');
@@ -23,20 +26,11 @@ Route::middleware('guest')->group(function() {
     Route::get('/forgot-password', function() {
         return view('pages.auth.forgot-password');
     })->name('forgot-password');
-    Route::view('/about', 'pages.landing.about')->name('about');
-    Route::view('/contact','pages.landing.contact')->name('contact');
-    Route::get('/detail-pekerjaan', function() {
-        return view('pages.landing.job-details');
-    })->name('job-details');
-    Route::get('/detail-pekerjaan/lamar', function() {
-        return view('pages.landing.application-form');
-    })->name('job-apply');
 });
 
 Route::view('/lowongan-aktif', 'pages.features.hrd.lowongan.lowongan-aktif')->name('lowongan.aktif');
 
 Route::middleware('auth')->group(function() {
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::middleware('roles:pelamar')->prefix('pelamar')->group(function() {
         Route::get('/dashboard', function() {
@@ -73,4 +67,6 @@ Route::middleware('auth')->group(function() {
             return view('pages.features.manajer.dashboard');
         })->name('manajer.dashboard');
     });
+
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

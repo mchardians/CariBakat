@@ -67,7 +67,7 @@
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-md-6 col-lg-7 d-none d-md-block d-lg-block bg-login-image"
-                                style="background-color: #40A578;"></div>
+                                style="background-color: #00b074;"></div>
                             <div class="col-md-6 col-lg-5">
                                 <div class="py-3 px-2 m-3">
                                     <img src="https://kbsproperty.co.id/wp-content/uploads/2020/09/dummy-logo-2b.png"
@@ -104,7 +104,7 @@
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-lg btn-block"
-                                                style="background-color: #40A578;color: #fff;">
+                                                style="background-color: #00b074;color: #fff;">
                                                 Masuk
                                             </button>
                                         </div>
@@ -119,7 +119,7 @@
                                             target="_blank">mchardians</a>
                                     </div>
                                     <div class="text-center text-small mt-2">
-                                        <a href="{{ route('home') }}" style="text-decoration: underline;">Kembali</a>
+                                        <a href="{{ route('home') }}" class="text-danger font-weight-bold" style="text-decoration: underline;">Kembali</a>
                                     </div>
                                 </div>
                             </div>
