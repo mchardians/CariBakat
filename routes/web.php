@@ -15,11 +15,12 @@ use App\Http\Controllers\DepartmentController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::middleware('guest')->group(function() {
-    Route::view('/', 'pages.landing.home')->name('home');
-    Route::view('/about-us', 'pages.landing.about')->name('about');
-    Route::view('/careers', 'pages.landing.careers')->name('careers');
-    Route::view('/contact-us', 'pages.landing.contact')->name('contact');
+Route::view('/', 'pages.landing.home')->name('home');
+Route::view('/about-us', 'pages.landing.about')->name('about');
+Route::view('/career-opportunities', 'pages.landing.careers')->name('careers');
+Route::view('/contact-us', 'pages.landing.contact')->name('contact');
+
+Route::middleware('guest')->prefix('user')->group(function() {
     Route::get('/register', [RegisterController::class, 'index'])->name('signup');
     Route::post('/register', [RegisterController::class, 'store'])->name('register');
     Route::get('/login', [AuthController::class, 'index'])->name('signin');
@@ -37,18 +38,21 @@ Route::middleware('auth')->group(function() {
         Route::get('/dashboard', function() {
             return view('pages.features.pelamar.dashboard');
         })->name('pelamar.dashboard');
+        Route::get('/profile', function() {
+            return view('pages.features.pelamar.profile.profile');
+        })->name('pelamar.profile');
     });
 
     Route::middleware('roles:hrd')->prefix('hrd')->group(function() {
         Route::get('/dashboard', function() {
             return view('pages.features.hrd.dashboard.dashboard');
         })->name('hrd.dashboard');
-        Route::get('/departemen', function() {
-            return view('pages.features.hrd.departemen.departemen');
-        })->name('hrd.departemen');
         Route::resource('/department', DepartmentController::class)->names([
             'index' => 'hrd.department.index'
         ]);
+        Route::get('/lowongan', function() {
+            return view('pages.features.hrd.lowongan.lowongan-aktif');
+        })->name('hrd.lowongan');
         Route::get('/lowongan/berakhir', function() {
             return view('pages.features.hrd.lowongan.lowongan-berakhir');
         })->name('hrd.lowongan.berakhir');

@@ -34,7 +34,7 @@
     @vite([])
 </head>
 
-<body id="top">
+<body {{ $attributes->merge(['class' => '' ]) }}>
     <div class="container-xxl bg-white p-0" style="max-width: 100% !important;">
         <!-- Navbar -->
         <x-partials.landing.navbar />
