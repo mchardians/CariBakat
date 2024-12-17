@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +46,9 @@ Route::middleware('auth')->group(function() {
         Route::get('/departemen', function() {
             return view('pages.features.hrd.departemen.departemen');
         })->name('hrd.departemen');
-        Route::get('/lowongan', function() {
-            return view('pages.features.hrd.lowongan.lowongan-aktif');
-        })->name('hrd.lowongan');
+        Route::resource('/department', DepartmentController::class)->names([
+            'index' => 'hrd.department.index'
+        ]);
         Route::get('/lowongan/berakhir', function() {
             return view('pages.features.hrd.lowongan.lowongan-berakhir');
         })->name('hrd.lowongan.berakhir');
