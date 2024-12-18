@@ -23,14 +23,22 @@
                         </div>
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                        <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
-                            diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna
-                            dolore erat amet</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                        <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
+                        <h1 class="mb-4">Tentang Kami - <span style="color: green;">CariBakat</span></h1>
+                        <p class="mb-4"><span style="color: green;">CariBakat</span> adalah platform inovatif yang dirancang untuk membantu individu
+                            menemukan dan mengembangkan bakat serta keterampilan mereka. Kami hadir sebagai jembatan antara pencari kerja,
+                            perusahaan, dan peluang karier terbaik.</p>
+                        <p class="mb-4">Dengan fitur personalisasi yang canggih, <span style="color: green;">CariBakat</span> menawarkan rekomendasi pekerjaan yang sesuai
+                            dengan minat, bakat, dan kompetensi Anda. Kami percaya bahwa setiap individu memiliki potensi unik yang
+                            dapat dikembangkan untuk mencapai kesuksesan.</p>
+                        <p class="mb-4">Melalui antarmuka yang ramah pengguna dan teknologi terkini, kami berkomitmen untuk memudahkan
+                            proses pencarian pekerjaan, eksplorasi bakat, serta pengembangan diri. <span style="color: green;">CariBakat</span> siap menjadi mitra terbaik
+                            Anda dalam meraih masa depan yang lebih cerah.</p>
+                        <h6><i class="fa fa-check text-primary me-3"></i>Peluang Karier Terbaik</h6>
+                        <p>Temukan pekerjaan sesuai bakat dan keterampilan Anda.</p>
+                        <h6><i class="fa fa-check text-primary me-3"></i>Rekomendasi Personalisasi</h6>
+                        <p>Dapatkan peluang kerja yang paling cocok untuk Anda.</p>
+                        <h6><i class="fa fa-check text-primary me-3"></i>Akses Cepat dan Mudah</h6>
+                        <p>Cari pekerjaan impian dengan antarmuka yang sederhana dan intuitif.</p>
                     </div>
                 </div>
             </div>
