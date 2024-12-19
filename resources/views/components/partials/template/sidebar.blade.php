@@ -73,8 +73,8 @@
                                 </span>
                                 <h4 class="text-section">Departemen</h4>
                             </li>
-                            <li class="nav-item {{ request()->routeIs('hrd.departemen') ? 'active' : '' }}">
-                                <a href="{{ route('hrd.departemen') }}">
+                            <li class="nav-item {{ request()->routeIs('hrd.department.index') ? 'active' : '' }}">
+                                <a href="{{ route('hrd.department.index') }}">
                                     <i class="fas fa-building"></i>
                                     <p>Departemen</p>
                                 </a>
