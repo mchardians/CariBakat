@@ -9,10 +9,10 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8">
-                                    <h1 class="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You Deserved</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                    <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
-                                    <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                                    <h1 class="display-3 text-white animated slideInDown mb-4">"Raih peluang karier terbaik dan kembangkan potensimu di lingkungan profesional."                                    </h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Kami hadir untuk menghubungkan Anda dengan beberapa pekerjaan di perusahaan yang tepat sesuai keahlian dan minat Anda. Bangun masa depan yang cerah bersama tim yang inovatif dan penuh semangat.</p>
+                                    <a href="{{ route('careers') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Jelajahi Pekerjaan</a>
+                                    <!-- <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a> -->
                                 </div>
                             </div>
                         </div>
@@ -24,10 +24,10 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8">
-                                    <h1 class="display-3 text-white animated slideInDown mb-4">Find The Best Startup Job That Fit You</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                    <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
-                                    <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                                    <h1 class="display-3 text-white animated slideInDown mb-4">"Temukan pekerjaan impian yang sesuai dengan keahlian dan passion Anda."</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Bergabunglah dengan perusahaan yang sesuai dengan keahlian dan passion Anda. Kami membantu Anda membangun masa depan yang lebih cerah dengan tim yang inovatif dan mendukung.</p>
+                                    <a href="{{ route('careers') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Jelajahi Pekerjaan</a>
+                                    <!-- <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a> -->
                                 </div>
                             </div>
                         </div>
@@ -124,12 +124,12 @@
                         </div>
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                        <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                        <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
+                        <h1 class="mb-4">Cari pekerjaan impian Anda melalui <span style="color: green;">CariBakat</span>, platform yang menghubungkan Anda dengan peluang terbaik.</h1>
+                        <p class="mb-4">Temukan peluang karier di platform <span style="color: green;">CariBakat</span> yang tepat untuk Anda. Kami menghubungkan Anda dengan tim yang penuh semangat untuk mencapai tujuan bersama.</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Peluang Karier Terbaik</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Rekomendasi Personalisasi</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Akses Cepat dan Mudah</p>
+                        <a class="btn btn-primary py-3 px-5 mt-3" href="{{ route('about') }}">Tentang CariBakat</a>
                     </div>
                 </div>
             </div>
@@ -477,49 +477,49 @@
         <!-- Testimonial Start -->
         <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container">
-                <h1 class="text-center mb-5">Our Clients Say!!!</h1>
+                <h1 class="text-center mb-5">Penilaian Pengguna <span style="color: green;">CariBakat</span></h1>
                 <div class="owl-carousel testimonial-carousel">
                     <div class="testimonial-item bg-light rounded p-4">
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <p>CariBakat sangat membantu saya menemukan pekerjaan yang sesuai dengan minat dan keahlian saya. Antarmuka yang user-friendly membuat pencarian lowongan menjadi lebih mudah dan cepat.</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('assets/landing/img/testimonial-1.jpg') }}" style="width: 50px; height: 50px;">
                             <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
+                                <h5 class="mb-1">Najwa Shihab</h5>
+                                <small>Data Scientist</small>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-item bg-light rounded p-4">
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <p>Fitur notifikasi lowongan baru sangat bermanfaat. Saya tidak perlu lagi repot-repot mencari secara manual. Namun, saya berharap ada lebih banyak filter pencarian untuk mempersempit hasil</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('assets/landing/img/testimonial-2.jpg') }}" style="width: 50px; height: 50px;">
                             <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
+                                <h5 class="mb-1">Ahmad James</h5>
+                                <small>Software Engineer</small>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-item bg-light rounded p-4">
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <p>Desain web CariBakat sangat menarik dan modern. Namun, saya mengalami sedikit kesulitan saat mengunggah dokumen lamaran. Semoga bisa diperbaiki di versi selanjutnya.</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('assets/landing/img/testimonial-3.jpg') }}" style="width: 50px; height: 50px;">
                             <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
+                                <h5 class="mb-1">Towel Waluyo</h5>
+                                <small>Cybersecurity Analyst</small>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-item bg-light rounded p-4">
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <p>CariBakat adalah platform yang sangat berguna bagi pencari kerja. Saya berhasil mendapatkan pekerjaan impian saya melalui platform ini. Terima kasih CariBakat</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="{{ asset('assets/landing/img/testimonial-4.jpg') }}" style="width: 50px; height: 50px;">
                             <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
+                                <h5 class="mb-1">Valentina Juliet</h5>
+                                <small>UI/UX Designer</small>
                             </div>
                         </div>
                     </div>
