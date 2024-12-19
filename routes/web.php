@@ -19,6 +19,8 @@ Route::view('/', 'pages.landing.home')->name('home');
 Route::view('/about-us', 'pages.landing.about')->name('about');
 Route::view('/career-opportunities', 'pages.landing.careers')->name('careers');
 Route::view('/contact-us', 'pages.landing.contact')->name('contact');
+Route::view('/profile', 'pages.profile')->name('profile');
+
 
 Route::middleware('guest')->prefix('user')->group(function() {
     Route::get('/register', [RegisterController::class, 'index'])->name('signup');
