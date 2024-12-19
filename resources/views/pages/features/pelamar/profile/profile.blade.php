@@ -15,60 +15,36 @@
             }
         </style>
     </x-slot>
+
     <x-slot name="content">
         <div class="container-fluid container-lg py-4 px-5 my-3 my-lg-5">
             <div class="row g-3">
-                <!-- Kolom Kiri -->
+                <!-- Left Column -->
                 <div class="col-lg-4 col-md-5 col-sm-12">
-                    <!-- Kartu Profile -->
+                    <!-- Profile Card -->
                     <div class="card p-3 rounded-3">
                         <div class="d-flex align-items-center">
-                            <!-- Foto Profil -->
-                            <img src="https://via.placeholder.com/80" alt="User Avatar" class="rounded-circle me-3" style="width: 80px; height: 80px; object-fit: cover;">
-
-                            <!-- Informasi Profil -->
+                            <!-- Profile Picture -->
+                            <img src="{{ asset('storage/' . $user->profile->profile_picture) }}" alt="User Avatar" class="rounded-circle me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                            <!-- Profile Information -->
                             <div>
-                                <h5 class="fw-bold mb-1">Mochammad Ardiansyah</h5>
-                                <p class="text-muted mb-2 small">ardianbro1310@gmail.com</p>
+                                <h5 class="fw-bold mb-1">{{ $user->fullname }}</h5>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Menu Navigasi -->
+                    <!-- Navigation Menu -->
                     <div class="card mt-4 rounded-3 p-3">
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item fw-bold mb-2">
                                 <a class="nav-link rounded-3 active" href="#"><i class="bi bi-person me-3"></i>Informasi Pribadi</a>
                             </li>
-                            <li class="nav-item fw-bold mb-2">
-                                <a class="nav-link rounded-3" href="#"><i class="bi bi-clock-history me-3"></i>Riwayat Karier</a>
-                            </li>
-                            <li class="nav-item fw-bold mb-2">
-                                <a class="nav-link rounded-3" href="#"><i class="bi bi-book me-3"></i>Pendidikan</a>
-                            </li>
-                            <li class="nav-item fw-bold mb-2">
-                                <a class="nav-link rounded-3" href="#"><i class="bi bi-tools me-3"></i>Keahlian</a>
-                            </li>
-                            <li class="nav-item fw-bold mb-2">
-                                <a class="nav-link rounded-3" href="#"><i class="bi bi-patch-check me-3"></i>Sertifikasi</a>
-                            </li>
-                            <li class="nav-item fw-bold mb-2">
-                                <a class="nav-link rounded-3" href="#"><i class="bi bi-file-text me-3"></i>Curriculum Vitae</a>
-                            </li>
-                            <li class="nav-item fw-bold mb-2">
-                                <a class="nav-link rounded-3" href="#"><i class="bi bi-briefcase me-3"></i>Status Lamaran</a>
-                            </li>
-                            <li class="nav-item fw-bold mb-2">
-                                <a class="nav-link rounded-3" href="#"><i class="bi bi-shield-check me-3"></i>Pengaturan Keamanan</a>
-                            </li>
-                            <li class="nav-item fw-bold mb-2">
-                                <a class="nav-link text-danger rounded-3" href="#"><i class="bi bi-box-arrow-right me-3"></i>Pengaturan Keamanan</a>
-                            </li>
+                            <!-- Additional Menu Items -->
                         </ul>
                     </div>
                 </div>
 
-                <!-- Kolom Kanan -->
+                <!-- Right Column -->
                 <div class="col-lg-8 col-md-7 col-sm-12">
                     <!-- Curriculum Vitae -->
                     <div class="card rounded-3 p-3">
@@ -91,50 +67,146 @@
                         </div>
                     </div>
 
-                    <!-- Tabs -->
+                    <!-- Personal Information Tab -->
                     <div class="card mt-4 rounded-3 p-4">
                         <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
-                            <!-- Judul dan Deskripsi -->
+                            <!-- Title and Description -->
                             <div class="mb-3">
                                 <h4 class="text-primary"><i class="bi bi-info-circle fs-4 me-3"></i>Informasi Pribadi</h4>
                                 <p class="text-muted small mb-0">Pastikan data pribadi benar untuk mempermudah proses pendaftaran</p>
                             </div>
 
-                            <!-- Icon Edit -->
+                            <!-- Edit Icon -->
                             <div>
-                                <a href="#" class="text-decoration-none text-primary">
+                                <button class="text-decoration-none text-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">
                                     <i class="bi bi-pencil-square fs-4"></i>
-                                </a>
+                                </button>
                             </div>
                         </div>
                         <dl class="my-3">
+                            <!-- About Me -->
                             <div class="my-3">
                                 <dt class="h6">Tentang Saya</dt>
-                                <dd>Mahasiswa D3 Manajemen Informatika Politeknik Negeri Malang yang memiliki minat dan keterampilan dalam pemrograman website maupun mobile.</dd>
+                                <dd>{{ $user->profile->bio ?? 'Belum ada informasi tentang diri.' }}</dd>
                             </div>
+
+                            <!-- Full Name -->
                             <div class="my-3">
                                 <dt class="h6">Nama Lengkap</dt>
-                                <dd>Mochammad Ardiansyah</dd>
+                                <dd>{{ $user->fullname }}</dd>
                             </div>
+
+                            <!-- Two-Column Layout for the rest -->
                             <div class="row">
                                 <div class="col-sm-6">
+                                    <dt class="h6">NIK</dt>
+                                    <dd>{{ $user->profile->nik ?? 'NIK tidak diketahui' }}</dd>
+                                </div>
+                                <div class="col-sm-6">
                                     <dt class="h6">Jenis Kelamin</dt>
-                                    <dd>Laki - Laki</dd>
-                                    <dt class="h6">Jenis Kelamin</dt>
-                                    <dd>Laki - Laki</dd>
-                                    <dt class="h6">Jenis Kelamin</dt>
-                                    <dd>Laki - Laki</dd>
+                                    <dd>{{ $user->profile->gender ?? 'Tidak Diketahui' }}</dd>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <dt class="h6">Tempat Lahir</dt>
+                                    <dd>{{ $user->profile->tempat_lahir ?? 'Tempat lahir tidak diketahui' }}</dd>
                                 </div>
                                 <div class="col-sm-6">
                                     <dt class="h6">Tanggal Lahir</dt>
-                                    <dd>13 Oktober 2002</dd>
-                                    <dt class="h6">Tanggal Lahir</dt>
-                                    <dd>13 Oktober 2002</dd>
-                                    <dt class="h6">Tanggal Lahir</dt>
-                                    <dd>13 Oktober 2002</dd>
+                                    <dd>{{ \Carbon\Carbon::parse($user->profile->birth_date)->format('d F Y') ?? 'Tanggal lahir tidak diketahui' }}</dd>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <dt class="h6">Email</dt>
+                                    <dd>{{ $user->email }}</dd>
+                                </div>
+                                <div class="col-sm-6">
+                                    <dt class="h6">Telepon</dt>
+                                    <dd>{{ $user->phone }}</dd>
                                 </div>
                             </div>
                         </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Edit Profile -->
+        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editProfileModalLabel">Edit Profil</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="{{ route('pelamar.profile.update', $user->id) }}" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+
+                            <!-- Bio -->
+                            <div class="mb-3">
+                                <label for="bio" class="form-label">Tentang Saya</label>
+                                <textarea class="form-control" id="bio" name="bio">{{ $user->profile->bio }}</textarea>
+                            </div>
+
+                            <!-- Full Name -->
+                            <div class="mb-3">
+                                <label for="fullname" class="form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="fullname" name="fullname" value="{{ old('fullname', $user->fullname) }}">
+                            </div>
+
+                            <!-- NIK -->
+                            <div class="mb-3">
+                                <label for="nik" class="form-label">NIK</label>
+                                <input type="text" class="form-control" id="nik" name="nik" value="{{ old('nik', $user->profile->nik) }}">
+                            </div>
+
+                            <!-- Gender -->
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">Jenis Kelamin</label>
+                                <select class="form-select" id="gender" name="gender">
+                                    <option value="Laki - Laki" {{ old('gender', $user->profile->gender) == 'Laki - Laki' ? 'selected' : '' }}>Laki - Laki</option>
+                                    <option value="Perempuan" {{ old('gender', $user->profile->gender) == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                </select>
+                            </div>
+
+                            <!-- Birth Date -->
+                            <div class="mb-3">
+                                <label for="birth_date" class="form-label">Tanggal Lahir</label>
+                                <input type="date" class="form-control" id="birth_date" name="birth_date" value="{{ old('birth_date', $user->profile->birth_date) }}">
+                            </div>
+
+                            <!-- Place of Birth -->
+                            <div class="mb-3">
+                                <label for="birth_place" class="form-label">Tempat Lahir</label>
+                                <input type="text" class="form-control" id="birth_place" name="birth_place" value="{{ old('birth_place', $user->profile->tempat_lahir) }}">
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $user->email) }}" readonly>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Telepon</label>
+                                <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone', $user->phone) }}">
+                            </div>
+
+                            <!-- Profile Picture -->
+                            <div class="mb-3">
+                                <label for="profile_picture" class="form-label">Foto Profil</label>
+                                <input type="file" class="form-control" id="profile_picture" name="profile_picture">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                        </form>
                     </div>
                 </div>
             </div>
