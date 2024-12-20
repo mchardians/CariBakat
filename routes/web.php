@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DepartmentController;
@@ -53,15 +54,9 @@ Route::middleware('auth')->group(function() {
         Route::resource('/lowongan', JobVacancyController::class)->names([
             'index' => 'hrd.lowongan.index'
         ]);
-        // Route::get('/lowongan/aktif', function() {
-        //     return view('pages.features.hrd.lowongan.lowongan-aktif');
-        // })->name('hrd.lowongan');
-        // Route::get('/lowongan', function() {
-        //     return view('pages.features.hrd.lowongan.lowongan-berakhir');
-        // })->name('hrd.lowongan.berakhir');
-        Route::get('/bobot-kriteria', function() {
-            return view('pages.features.hrd.bobot-kriteria.bobot-kriteria');
-        })->name('hrd.bobot-kriteria');
+        Route::resource('/kriteria-penilaian', CriteriaController::class)->names([
+            'index' => 'hrd.criteria.index'
+        ]);
         Route::get('/pelamar', function() {
             return view('pages.features.hrd.pelamar.pelamar');
         })->name('hrd.pelamar');

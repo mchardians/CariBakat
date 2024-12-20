@@ -118,8 +118,8 @@
                                 </span>
                                 <h4 class="text-section">Kriteria Penilaian</h4>
                             </li>
-                            <li class="nav-item {{ request()->routeIs('hrd.bobot-kriteria') ? 'active' : '' }}">
-                                <a href="{{ route('hrd.bobot-kriteria') }}">
+                            <li class="nav-item {{ request()->routeIs('hrd.criteria.index') ? 'active' : '' }}">
+                                <a href="{{ route('hrd.criteria.index') }}">
                                     <i class="fas fa-balance-scale"></i>
                                     <p>Kriteria Penilaian</p>
                                 </a>
