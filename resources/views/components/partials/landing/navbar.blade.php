@@ -1,7 +1,7 @@
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
     <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-        <img src="{{ asset('assets/landing/img/logocb.png') }}" alt="Logo" style="height: 80px; width: auto;">
+        <img src="{{ asset('assets/landing/img/logocb.png') }}" alt="Logo" style="height: 65px; width: auto;">
         <h1 class="m-0 text-primary">CariBakat</h1>
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -55,10 +55,10 @@
                     <li><hr class="dropdown-divider"></li>
                     @if (auth()->user()->role->name === "pelamar")
                         <li>
-                            <a class="dropdown-item px-1" href="{{ route('pelamar.profile') }}">Lihat Profil</a>
+                            <a class="dropdown-item px-1" href="{{ route('pelamar.profile') }}"><i class="bi bi-person me-3"></i>Lihat Profil</a>
                         </li>
                         <li>
-                            <a class="dropdown-item px-1" href="#">Riwayat Lowongan</a>
+                            <a class="dropdown-item px-1" href="#"><i class="bi bi-briefcase me-3"></i>Status Lamaran</a>
                         </li>
                     @else
                         <li>
@@ -68,7 +68,7 @@
                     <li><hr class="dropdown-divider"></li>
                     <li>
                         <form action="{{ route('logout') }}" id="form-logout" method="POST">
-                            <a class="dropdown-item text-danger px-1" href="javascript:$('#form-logout').submit();">Logout</a>
+                            <a class="dropdown-item text-danger px-1" href="javascript:$('#form-logout').submit();"><bi class="bi-box-arrow-right me-3"></bi>Logout</a>
                         </form>
                     </li>
                 </ul>

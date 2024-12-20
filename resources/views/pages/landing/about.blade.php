@@ -1,4 +1,4 @@
-<x-landing-layout title="Tentang Kami">
+<x-landing-layout title="Tentang Kami" class="bg-white">
     <x-slot name="content">
         <x-partials.landing.page-header title="Tentang Kami" breadcrumbs="beranda,tentang kami" class="mb-5" />
 

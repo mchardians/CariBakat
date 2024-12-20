@@ -1,4 +1,4 @@
-<x-landing-layout title="Peluang Karir">
+<x-landing-layout title="Peluang Karir" class="bg-white">
     <x-slot name="content">
         <x-partials.landing.page-header title="Peluang Karir" breadcrumbs="beranda, peluang karir" />
 

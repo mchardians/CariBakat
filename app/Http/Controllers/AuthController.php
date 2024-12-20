@@ -22,13 +22,13 @@ class AuthController extends Controller
 
             switch(Auth::user()->role->name) {
                 case "pelamar":
-                    return redirect()->intended(route('pelamar.dashboard'));
+                    return redirect()->intended(route('pelamar.profile'))->with("success", "Periksa peluang karir untuk informasi lowongan pekerjaan.");
                 case "hrd":
-                    return redirect()->intended(route('hrd.dashboard'));
+                    return redirect()->intended(route('hrd.dashboard'))->with("success", "Selamat Datang kembali". auth()->user()->fullname . " ". ".");
                 case "manajer":
                     return redirect()->intended(route('manajer.dashboard'));
                 default:
-                    abort(403, 'Forbidden: You don’t have permission to access on this server ');
+                    abort(403, "Forbidden: You don’t have permission to access on this server");
                     break;
             }
         }

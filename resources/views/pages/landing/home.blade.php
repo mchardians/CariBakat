@@ -1,4 +1,4 @@
-<x-landing-layout title="Beranda">
+<x-landing-layout title="Beranda" class="bg-white">
     <x-slot name="content">
         <!-- Carousel Start -->
         <div class="container-fluid p-0">

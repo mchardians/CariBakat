@@ -85,7 +85,13 @@
                                 </span>
                                 <h4 class="text-section">Lowongan Pekerjaan</h4>
                             </li>
-                            <li class="nav-item {{ request()->routeIs('hrd.lowongan.*') ? 'active submenu' : '' }}">
+                            <li class="nav-item {{ request()->routeIs('hrd.lowongan.index') ? 'active submenu' : '' }}">
+                                <a href="{{ route('hrd.lowongan.index') }}">
+                                    <i class="fas fa-briefcase"></i>
+                                    <p>Daftar Lowongan</p>
+                                </a>
+                            </li>
+                            {{-- <li class="nav-item {{ request()->routeIs('hrd.lowongan.*') ? 'active submenu' : '' }}">
                                 <a data-toggle="collapse" href="#lowongan" class="collapsed" aria-expanded="{{ request()->routeIs('hrd.lowongan.*') ? 'true' : 'false' }}">
                                     <i class="fas fa-briefcase"></i>
                                     <p>Daftar Lowongan</p>
@@ -94,7 +100,7 @@
                                 <div class="collapse {{ request()->routeIs('hrd.lowongan.*') ? 'show' : '' }}" id="lowongan">
                                     <ul class="nav nav-collapse">
                                         <li>
-                                            <a href="{{ route('lowongan.aktif') }}">
+                                            <a href="#">
                                                 <span class="sub-item">Lowongan Aktif</span>
                                             </a>
                                         </li>
@@ -105,17 +111,17 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
+                            </li> --}}
                             <li class="nav-section">
                                 <span class="sidebar-mini-icon">
                                     <i class="fa fa-ellipsis-h"></i>
                                 </span>
-                                <h4 class="text-section">Bobot Penilaian</h4>
+                                <h4 class="text-section">Kriteria Penilaian</h4>
                             </li>
                             <li class="nav-item {{ request()->routeIs('hrd.bobot-kriteria') ? 'active' : '' }}">
                                 <a href="{{ route('hrd.bobot-kriteria') }}">
                                     <i class="fas fa-balance-scale"></i>
-                                    <p>Bobot Kriteria</p>
+                                    <p>Kriteria Penilaian</p>
                                 </a>
                             </li>
                             <li class="nav-section">

@@ -19,7 +19,7 @@
                     <h2 class="text-success mb-2">
                         Selamat Datang <span class="fw-bold">{{ auth()->user()->fullname }}</span> di Platform CariBakat!
                     </h2>
-                    <h4 class="text-muted mb-4">
+                    <h4 class="text-muted mb-4 text-justify">
                         CariBakat merupakan sebuah platform rekrutmen karyawan berbasis website yang memberikan evaluasi mendalam terhadap setiap kandidat menggunakan Sistem Pendukung Keputusan (SPK). Pelamar dapat mengunggah CV dan mengisi informasi seperti keahlian, pengalaman, dan sertifikasi, yang kemudian dibobot dan dievaluasi oleh sistem untuk menentukan peringkat terbaik.
                     </h4>
                 </div>
@@ -36,8 +36,8 @@
                                 </div>
                                 <div class="col col-stats ml-3 ml-sm-0">
                                     <div class="numbers">
-                                        <p class="card-category">Visitors</p>
-                                        <h4 class="card-title">1,294</h4>
+                                        <p class="card-category">Departemen</p>
+                                        <h4 class="card-title">{{ $totalDepartment }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -55,8 +55,8 @@
                                 </div>
                                 <div class="col col-stats ml-3 ml-sm-0">
                                     <div class="numbers">
-                                        <p class="card-category">Subscribers</p>
-                                        <h4 class="card-title">1303</h4>
+                                        <p class="card-category">Lowongan Tersedia</p>
+                                        <h4 class="card-title">{{ $totalJobVacancy }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -187,5 +187,18 @@
     <x-slot name="scripts">
         <script src="{{ asset('assets/template/js/plugin/datatables/datatables.min.js') }}"></script>
         <script src="{{ asset('assets/template/js/datatable/pelamar-terbaik.js') }}"></script>
+        <script src="{{ asset('assets/template/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
+        @if (Session::has('success'))
+            <script>
+                swal("Login Berhasil!", "{{ Session::get('success') }}", {
+                    icon : "success",
+                    buttons: {
+                        confirm: {
+                            className : 'btn btn-success'
+                        }
+                    },
+                });
+            </script>
+        @endif
     </x-slot>
 </x-app-layout>

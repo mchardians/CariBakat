@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\JobVacancyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,18 +46,19 @@ Route::middleware('auth')->group(function() {
     });
 
     Route::middleware('roles:hrd')->prefix('hrd')->group(function() {
-        Route::get('/dashboard', function() {
-            return view('pages.features.hrd.dashboard.dashboard');
-        })->name('hrd.dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'dashboardHRD'])->name('hrd.dashboard');
         Route::resource('/department', DepartmentController::class)->names([
             'index' => 'hrd.department.index'
         ]);
-        Route::get('/lowongan', function() {
-            return view('pages.features.hrd.lowongan.lowongan-aktif');
-        })->name('hrd.lowongan');
-        Route::get('/lowongan/berakhir', function() {
-            return view('pages.features.hrd.lowongan.lowongan-berakhir');
-        })->name('hrd.lowongan.berakhir');
+        Route::resource('/lowongan', JobVacancyController::class)->names([
+            'index' => 'hrd.lowongan.index'
+        ]);
+        // Route::get('/lowongan/aktif', function() {
+        //     return view('pages.features.hrd.lowongan.lowongan-aktif');
+        // })->name('hrd.lowongan');
+        // Route::get('/lowongan', function() {
+        //     return view('pages.features.hrd.lowongan.lowongan-berakhir');
+        // })->name('hrd.lowongan.berakhir');
         Route::get('/bobot-kriteria', function() {
             return view('pages.features.hrd.bobot-kriteria.bobot-kriteria');
         })->name('hrd.bobot-kriteria');

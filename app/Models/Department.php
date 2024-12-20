@@ -10,4 +10,8 @@ class Department extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'description'];
+
+    public function jobVacancies() {
+        return $this->hasMany(JobVacancy::class);
+    }
 }

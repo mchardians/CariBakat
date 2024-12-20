@@ -34,11 +34,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
-        body {
-            overflow-x: hidden;
-            background-color: #efefee;
-        }
-
         .bg-login-image {
             background: url('{{ asset('assets/template/img/login-image.svg') }}') no-repeat;
             background-position: center;
@@ -59,11 +54,13 @@
     @vite([])
 </head>
 
-<body class="row">
-    <div class="container align-self-center">
+<body style="background-color: #efefee;">
+    <img class="img-fluid d-none d-lg-inline-block m-3" src="https://placehold.co/250x80?text=CariBakat+Logo" alt="CariBakat Logo">
+
+    <div class="container container-fluid">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-10 col-md-12 col-lg-10">
-                <div class="card overflow-hidden shadow-lg my-5">
+                <div class="card shadow-lg">
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-md-6 col-lg-7 d-none d-md-block d-lg-block bg-login-image"
